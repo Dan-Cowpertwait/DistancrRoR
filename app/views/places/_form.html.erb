@@ -13,6 +13,9 @@
     <%= f.label :phone %>
     <%= f.phone_field :phone%>
 
+    <%= f.label :tag %>
+    <%= f.collection_select :tag_id, Tag.all, :id, :name%>
+
 
     <%= f.submit "Submit"%>
 <% end %>

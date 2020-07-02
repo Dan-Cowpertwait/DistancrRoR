@@ -5,7 +5,7 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
       t.string :location
       t.integer :phone
       t.integer :occupancy
-      t.string :tags
+      t.string :all_tags
       t.timestamps
     end
   end

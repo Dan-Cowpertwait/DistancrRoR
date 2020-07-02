@@ -12,7 +12,7 @@ class OwnersController < ApplicationController
     def create
       @owner = Owner.create(owner_params)
       @owner.user = current_user
-      redirect_to '/user/dashboard' #still need to build routes
+      redirect_to '/dashboard' #still need to build routes
     end
   
     def show

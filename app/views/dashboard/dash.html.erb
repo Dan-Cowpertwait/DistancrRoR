@@ -1,0 +1,16 @@
+<% if current_user.individual %>
+
+<h1> You are a person </h1>
+
+<% elsif current_user.owner %>
+
+
+<h1> You are an owner </h1>
+
+<%= link_to "new place", new_place_path %>
+
+<% elsif current_user.owner && current_user.individual %>
+
+<h1> You are both an individual and an owner! well aint that noice  </h1>
+
+<% end %>

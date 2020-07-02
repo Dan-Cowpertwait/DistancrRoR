@@ -11,7 +11,7 @@ class IndividualsController < ApplicationController
       def create
         @individual = Individual.create(individual_params)
         @individual.user = current_user
-        redirect_to '/user/dashboard' #still need to build routes
+        redirect_to '/dashboard' #still need to build routes
       end
     
       def show

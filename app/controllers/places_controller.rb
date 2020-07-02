@@ -7,6 +7,8 @@ class PlacesController < ApplicationController
 
     def new
         @place = Place.new
+        @user = current_user
+        @owner = @user.owner
     end
 
     def create
@@ -31,10 +33,20 @@ class PlacesController < ApplicationController
         redirect_to place_path(@place)
     end
 
+    def all_tags=(name)
+        self.tags = names.split(',').map do |name|
+            Tag.where(name: name).first
+        end
+    end 
+    
+    def all_tags
+        tags.map(&:name).join(", ")
+    end
+
     private
 
     def place_params
-        params.require(:place).permit(:name, :location, :phone, :occupancy, :tags, :owner_id)
+        params.require(:place).permit(:name, :location, :phone, :occupancy, :all_tags, :owner_id)
     end 
 
 end

@@ -1,5 +1,11 @@
-<h1> <%= place.name %> </h1>
+<h1> <%= @place.name %> </h1>
 
-<p> <%= place.location %> </p>
-<p> <%= place.phone %> </p>
-<p> <%= place.occupancy %> </p>
+<p> <%= @place.location %> </p>
+<p> <%= @place.phone %> </p>
+<p> <%= @place.occupancy %> </p>
+
+<%= link_to 'Show', @place %>
+<%= link_to 'Edit', edit_place_path(@place) %>
+<%= link_to "Delete", @place, method: "delete" %>
+
+
