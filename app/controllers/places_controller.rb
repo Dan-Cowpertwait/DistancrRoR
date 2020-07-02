@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
     def create
         @place = Place.create(place_params)
         @place.user = current_user
-        redirect_to places_path
+        redirect_to places_path(@place)
     end
 
     def show
