@@ -17,10 +17,10 @@ class PlacesController < ApplicationController
     end
 
 
-
     def show
         @place = Place.find(params[:id])
         @user = current_user
+        @individual = @user.individual
     end
 
     def edit
@@ -41,16 +41,6 @@ class PlacesController < ApplicationController
           format.html { redirect_to places_path, notice: 'place was successfully destroyed.'}
         end
       end
-
-    def all_tags=(name)
-        self.tags = names.split(',').map do |name|
-            Tag.where(name: name).first
-        end
-    end 
-    
-    def all_tags
-        tags.map(&:name).join(", ")
-    end
 
     private
 

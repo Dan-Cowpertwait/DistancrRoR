@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_040101) do
+ActiveRecord::Schema.define(version: 2020_07_02_060235) do
 
   create_table "individuals", force: :cascade do |t|
     t.integer "user_id"
@@ -29,12 +29,26 @@ ActiveRecord::Schema.define(version: 2020_07_02_040101) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "place_tags", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "tag_id"
+    t.index ["place_id"], name: "index_place_tags_on_place_id"
+    t.index ["tag_id"], name: "index_place_tags_on_tag_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.integer "phone"
     t.integer "occupancy"
     t.string "all_tags"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "owner_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,4 +65,6 @@ ActiveRecord::Schema.define(version: 2020_07_02_040101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "place_tags", "places"
+  add_foreign_key "place_tags", "tags"
 end

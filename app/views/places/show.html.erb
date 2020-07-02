@@ -4,8 +4,14 @@
 <p> <%= @place.phone %> </p>
 <p> <%= @place.occupancy %> </p>
 
+<% if current_user.individual %>
+
+<%= render partial: "visits/visitform"%>
+
+<% elsif current_user.owner %>
+
 <%= link_to 'Show', @place %>
 <%= link_to 'Edit', edit_place_path(@place) %>
 <%= link_to "Delete", @place, method: "delete" %>
 
-
+<% end %>
