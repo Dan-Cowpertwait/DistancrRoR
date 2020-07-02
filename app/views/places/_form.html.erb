@@ -1,0 +1,18 @@
+<%= form_for @place do |f| %>
+    <%= f.hidden_field :owner_id, value: @owner.id %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+
+    <%= f.label :location %>
+    <%= f.text_field :location%>
+
+    <%= f.label :occupancy %>
+    <%= f.number_field :occupancy%>
+
+    <%= f.label :phone %>
+    <%= f.phone_field :phone%>
+
+
+    <%= f.submit "Submit"%>
+<% end %>
