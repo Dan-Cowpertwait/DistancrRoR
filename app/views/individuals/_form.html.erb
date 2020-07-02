@@ -1,0 +1,16 @@
+<%= form_for @individual do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name%>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name%>
+
+    <%= f.label :phone %>
+    <%= f.phone_field :phone%>
+
+    <%= f.label :dob %>
+    <%= f.date_field :dob%>
+
+    <%= f.submit "Submit"%>
+<% end %>
