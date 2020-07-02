@@ -3,9 +3,8 @@ class CreatePlaces < ActiveRecord::Migration[6.0]
     create_table :places do |t|
       t.string :name
       t.string :location
-      t.integer :phone
+      t.string :phone
       t.integer :occupancy
-      t.string :all_tags
       t.timestamps
     end
   end

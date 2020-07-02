@@ -12,8 +12,9 @@ class PlacesController < ApplicationController
     end
 
     def create
-        @place = Place.create(place_params)
-        redirect_to places_path(@place)
+        place = Place.new(place_params)
+        place.save
+        redirect_to places_path(place)
     end
 
 

@@ -1,12 +1,12 @@
-    <% @places.each do |place| %>
-      <tr>
-        <td><%= place.name %></td>
-        <td><%= place.location %></td>
-        <td><%= place.phone %></td>
-        <td><%= place.occupancy %></td>
-        <td><%= place.owner_id %></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <button> <%= link_to "Delete", place, method: "delete" %></button>
-      </tr>
-    <% end %>
+<% @places.each do |place| %>
+  <div>
+    <p><%= place.name %></p>
+    <p><%= place.location %></p>
+    <p><%= place.phone %></p>
+    <p><%= place.occupancy %></p>
+    <p><%= place.owner_id %></p>
+    <p><%= link_to 'Show', place %></p>
+    <p><%= link_to 'Edit', edit_place_path(place) %></p>
+    <button> <%= link_to "Delete", place, method: "delete" %></button>
+  </div>
+<% end %>
