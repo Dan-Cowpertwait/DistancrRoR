@@ -1,0 +1,12 @@
+    <% @places.each do |place| %>
+      <tr>
+        <td><%= place.name %></td>
+        <td><%= place.location %></td>
+        <td><%= place.phone %></td>
+        <td><%= place.occupancy %></td>
+        <td><%= place.owner_id %></td>
+        <td><%= link_to 'Show', place %></td>
+        <td><%= link_to 'Edit', edit_place_path(place) %></td>
+        <button> <%= link_to "Delete", place, method: "delete" %></button>
+      </tr>
+    <% end %>
