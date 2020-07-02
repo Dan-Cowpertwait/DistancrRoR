@@ -1,0 +1,9 @@
+<%= form_for @owner do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+
+    <%= f.submit "Submit"%>
+    
+<% end %>

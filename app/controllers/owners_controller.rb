@@ -4,6 +4,10 @@ class OwnersController < ApplicationController
     def new
       @owner = Owner.new
     end
+
+    def edit
+        @owner = Owner.find(params[:id])
+    end
   
     def create
       @owner = Owner.create(owner_params)
