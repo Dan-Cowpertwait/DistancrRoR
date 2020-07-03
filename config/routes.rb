@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard' => "dashboard#dash"
 
   
-  resources :owners
+  resources :owners, only: [:show, :new, :create, :edit, :update]
   resources :individuals
   resources :places
   resources :visits
