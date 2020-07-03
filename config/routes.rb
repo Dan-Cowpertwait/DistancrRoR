@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'dashboard#home'
   get '/welcome' => 'dashboard#welcome'
   get '/dashboard' => "dashboard#dash"
+  get '/search' => "places#search"
 
   resources :places
   resources :owners, only: [:show, :new, :create, :edit, :update] do

@@ -57,7 +57,11 @@ class PlacesController < ApplicationController
         respond_to do |format|
           format.html { redirect_to places_path, notice: 'place was successfully destroyed.'}
         end
-      end
+    end
+
+    def search
+        @places = Place.where("name Like ?", "%" + params[:q] + "%")
+    end
 
     private
 
