@@ -1,3 +1,4 @@
+
 <h1> <%= @place.name %> </h1>
 
 <p> <%= @place.location %> </p>
@@ -12,7 +13,8 @@
 
 
 <%= link_to 'Show', @place %>
-<%= link_to @place.owner.name, owner_path(@place.owner) if @place.author %> (<%= link_to "Edit Place", edit_owner_place_path(@place.owner, @place) if @place.owner %>)
+<%= link_to @place.owner.name, owner_path(@place.owner) if @place.owner %> (<%= link_to "Edit Place", edit_owner_place_path(@place.owner, @place) if @place.owner %>)
 <%= link_to "Delete", @place, method: "delete" %>
 
 <% end %>
+

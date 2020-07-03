@@ -6,11 +6,12 @@ class PlacesController < ApplicationController
             @places = Owner.find(params[:owner_id]).places
         else
         @places = Place.all
+        end
     end
 
     def new
         if params[:owner_id] && !Owner.exists?(params[:owner_id])
-            redirect_to owners_path, alert : "Owner not found"
+            redirect_to owners_path, alert: "Owner not found"
         else
         @place = Place.new(owner_id: params[:owner_id])
         end
@@ -35,11 +36,12 @@ class PlacesController < ApplicationController
             if owner.nil?
                 redirect_to owners_path, alert: "Owner not found"
             else
-                @place = owner.place.find_by(id: params[:id])
+                @place = owner.places.find_by(id: params[:id])
                 redirect_to owner_places_path(owner), alert: "Place not found" if @place.nil?
             end
         else
         @place = Place.find(params[:id])
+        end
     end 
 
     def update

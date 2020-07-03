@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_02_071457) do
+ActiveRecord::Schema.define(version: 2020_07_02_130439) do
 
   create_table "individuals", force: :cascade do |t|
     t.integer "user_id"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2020_07_02_071457) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.integer "place_id"
     t.integer "individual_id"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

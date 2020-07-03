@@ -1,12 +1,16 @@
 <% @places.each do |place| %>
-  <div>
-    <p><%= place.name %></p>
-    <p><%= place.location %></p>
-    <p><%= place.phone %></p>
-    <p><%= place.occupancy %></p>
-    <p><%= place.owner_id %></p>
-    <p><%= link_to 'Show', place %></p>
-    <p><%= link_to 'Edit', edit_place_path(place) %></p>
-    <button> <%= link_to "Delete", place, method: "delete" %></button>
-  </div>
+<h1> <%= place.name %> </h1>
+
+<p> <%= place.location %> </p>
+<p> <%= place.phone %> </p>
+<p> <%= place.occupancy %> </p>
+<p><%= link_to 'Show', place %></p>
+
+
+<% if current_user.owner %>
+
+<%= link_to place.owner.name, owner_path(place.owner) if place.owner %> (<%= link_to "Edit Place", edit_owner_place_path(place.owner, place) if place.owner %>)
+<%= link_to "Delete", place, method: "delete" %>
+
+<% end %>
 <% end %>
