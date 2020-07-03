@@ -1,14 +1,19 @@
 class PlacesController < ApplicationController
 
     def index
-        @places = Place.all
         @user = current_user
+        if params[:owner_id]
+            @places = Owner.find(params[:owner_id]).places
+        else
+        @places = Place.all
     end
 
     def new
-        @place = Place.new
-        @user = current_user
-        @owner = @user.owner
+        if params[:owner_id] && !Owner.exists?(params[:owner_id])
+            redirect_to owners_path, alert : "Owner not found"
+        else
+        @place = Place.new(owner_id: params[:owner_id])
+        end
     end
 
     def create
@@ -25,6 +30,15 @@ class PlacesController < ApplicationController
     end
 
     def edit
+        if params[:owner_id]
+            owner = Owner.find_by(id: params[:owner_id])
+            if owner.nil?
+                redirect_to owners_path, alert: "Owner not found"
+            else
+                @place = owner.place.find_by(id: params[:id])
+                redirect_to owner_places_path(owner), alert: "Place not found" if @place.nil?
+            end
+        else
         @place = Place.find(params[:id])
     end 
 

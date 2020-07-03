@@ -8,7 +8,7 @@
 
 <h1> <%=  @owner.name %> </h1>
 
-<%= link_to "new place", new_owner_place_path(@owner) %>
+<%= link_to owner_path(@owner) %>
 
 <% elsif current_user.owner && current_user.individual %>
 

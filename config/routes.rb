@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get '/dashboard' => "dashboard#dash"
 
   
-  resources :owners, only: [:show, :new, :create, :edit, :update]
+  resources :owners, only: [:show, :new, :create, :edit, :update] do
+    resources :places, only: [:show, :index, :new, :edit]
+  end
+  #new_owner_place_path! + /owner/owner_id/places/new
   resources :individuals
   resources :places
   resources :visits
