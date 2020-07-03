@@ -15,7 +15,7 @@
 
 <h1> <%=  @owner.name %> </h1>
 
-<%= link_to owner_path(@owner) %>
+<%= link_to owner_places_path(@owner) %>
 
 <% elsif current_user.owner && current_user.individual %>
 
