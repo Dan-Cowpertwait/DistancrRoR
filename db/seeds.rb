@@ -13,3 +13,4 @@ Place.create(id: 3, name: "Bontempo", location: "400 Bridge rd", phone: "0211111
 Place.create(id: 4, name: "Mr Minhs", location: "305 victoria rd", phone: "0320000000", occupancy: 20 , owner_id: 2)
 Owner.create(id: 1, name: "Mr Businessman")
 Owner.create(id: 2, name: "Mrs Businesswoman")
+
