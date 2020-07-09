@@ -3,6 +3,7 @@ class VisitsController < ApplicationController
     def create
         @visit = Visit.new(visit_params)
         @visit.save
+        redirect_to '/dashboard'
     end
 
     def destroy

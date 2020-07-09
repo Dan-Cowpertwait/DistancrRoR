@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard' => "dashboard#dash"
   get '/search' => "places#search"
 
-  resources :places, only: [:show, :index]
+  resources :places
   resources :owners, only: [:show, :new, :create, :edit, :update] do
     resources :places
   end

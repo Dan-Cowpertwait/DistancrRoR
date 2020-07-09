@@ -5,6 +5,9 @@
 <p> <%= @place.phone %> </p>
 <p> <%= @place.occupancy %> </p>
 
+<p> Ind ID <%= @individual.id %> </p>
+<p>Place ID <%= @place.id %> </p>
+
 <% if current_user.individual %>
 
 <%= render partial: "visitform"%>

@@ -7,15 +7,23 @@
 
 <h1> <%=  @individual.first_name %> <%=  @individual.last_name %> </h1>
 
-<%= link_to 'See places', places_path %>
+    <% @visits.each do |visit| %>
 
+        <p> <%= visit.place.name %> </p>
+        <p> <%= visit.created_at %> </p>
+        <p><%= link_to 'Show', place_path(visit.place) %></p>
+    <% end %>
+
+
+<%= link_to 'See places', places_path %>
 
 
 <% elsif current_user.owner %>
 
 <h1> <%=  @owner.name %> </h1>
 
-<%= link_to owner_places_path(@owner) %>
+<%= link_to "Your Places", owner_places_path(@owner) %>
+<%= link_to "Your owner account", owner_path(@owner) %>
 
 <% elsif current_user.owner && current_user.individual %>
 

@@ -1,4 +1,4 @@
 class Visit < ApplicationRecord
     belongs_to :individual
-    belongs_to :owner
+    belongs_to :place
 end
