@@ -79,7 +79,7 @@ class PlacesController < ApplicationController
     private
 
     def place_params
-        params.require(:place).permit(:name, :location, :phone, :occupancy, :owner_id)
+        params.require(:place).permit(:name, :location, :phone, :occupancy, :owner_id, :image)
     end 
 
 end

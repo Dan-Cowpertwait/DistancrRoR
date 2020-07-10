@@ -33,7 +33,13 @@
             <%= f.label :dob, class:"sr-only"  %>
             <%= f.date_field :dob, class:"form-control"%>
         </div>
+
         <br />
+        <p class="h5 mb-3 font-weight-normal text-center">Profile Pic (optional)</p>
+        <div class="field">
+          <%= f.label :profile_pic, class:"sr-only" %>
+          <%= f.file_field :profile_pic, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
 
         <div class="actions">
             <%= f.submit "Submit", class: 'btn btn-lg btn-primary btn-block'%>

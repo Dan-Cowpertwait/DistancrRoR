@@ -25,7 +25,6 @@
 
 
 
-<%# <%= link_to 'See all places', places_path %>
 
 <% elsif @user.owner && !@user.individual %>
 
@@ -37,7 +36,6 @@
       <% end %>
     </div>
 
-  <p class="lead">Your Places of Business</p>
 <br/>
 <%= render partial: "/places/show"%>
 

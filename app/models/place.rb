@@ -3,4 +3,6 @@ class Place < ApplicationRecord
 
     has_many :visits
     has_many :individuals, through: :visits
+
+    has_one_attached :image
 end

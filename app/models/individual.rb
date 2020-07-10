@@ -4,5 +4,7 @@ class Individual < ApplicationRecord
     has_many :visits
     has_many :places, through: :visits
 
+    has_one_attached :profile_pic
+
 
 end
