@@ -13,17 +13,18 @@
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Welcome back <%= @owner.name %>! </h1>
-      <p class="lead">Here are your current businesses</p>
+      <p class="lead">Here are your current businesses, or, add a new one!</p>
+      <%= link_to new_owner_place_path(@owner) do %>
+            <img class="my-img" src=<%=asset_path("plus.svg")%>>
+      <% end %>
     </div>
 
-
-<%= link_to "new place", new_owner_place_path(@owner) %>
 
 <%= render partial: "/places/show"%>
 
 <% elsif current_user.owner && current_user.individual %>
 
-<h1> <%=  @owner.name %> ,  <%=  @individual.name %> </h1>
+<h1> <%=  @owner.name %>,  <%=  @individual.name %> </h1>
 
 <% end %>
 

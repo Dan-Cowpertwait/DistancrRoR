@@ -7,20 +7,24 @@ class DashboardController < ApplicationController
     end 
 
     def dash
+        if user_signed_in?
         @user = current_user
 
-        if @user.individual
-            @individual = @user.individual
-            @visits = @individual.visits
+            if @user.individual
+                @individual = @user.individual
+                @visits = @individual.visits
 
-        elsif @user.owner
-            @owner = @user.owner
-            @places = @owner.places
+            elsif @user.owner
+                @owner = @user.owner
+                @places = @owner.places
 
-        else
-            @individual = @user.individual
-            @owner = @user.owner
-            
+            elsif
+                @individual = @user.individual
+                @owner = @user.owner
+                
+            end
+        else 
+            redirect_to "/welcome"
         end
     end
 

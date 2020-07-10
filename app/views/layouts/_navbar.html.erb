@@ -10,3 +10,40 @@
 
 
 </style>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/dashboard"><img class="my-img mx-auto" src=<%=asset_path("distancrlogo.png")%>></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse show" id="navbarsExample01" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+        <% if current_user %>
+
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class:"nav-link"  %>
+
+        <% else %>
+
+        <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
+
+        <% end %>
+
+        <% if current_user.individual %>
+            <%= link_to 'Create Owner Account', new_owner_path, class:"nav-link" %>
+
+        <% elsif current_user.owner %>
+            <%= link_to 'Create Individual Account', new_individual_path, class:"nav-link" %>
+
+        <% else %>
+
+        <% end %>
+
+    </ul>
+
+  </div>
+</nav>
