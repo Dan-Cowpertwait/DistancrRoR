@@ -1,18 +1,47 @@
-<%= form_for @place do |f| %>
+<div class="container vertical-center">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+        <h1 class="a mb-3 font-weight-normal text-center">Business Information</h1>
+        <%= form_for @place do |f| %>
+        <%= f.hidden_field :owner_id%>
 
-    <%= f.hidden_field :owner_id%>
+        <br />
 
-    <%= f.label :name %>
-    <%= f.text_field :name%>
+        <p class="h5 mb-3 font-weight-normal text-center">Name</p>
+        <div class="field">
+            <%= f.label :name, class:"sr-only" %>
+            <%= f.text_field :name, class:"form-control"%>
+        <br />
+        </div>
+        <p class="h5 mb-3 font-weight-normal text-center">Address</p>
+        <div class="field">
+            <%= f.label :location, class:"sr-only"  %>
+            <%= f.text_field :location, class:"form-control"%>
+        </div>
+        <br />
+        <p class="h5 mb-3 font-weight-normal text-center">Phone Number</p>
+        <div class="field">
+            <%= f.label :phone, class:"sr-only"  %>
+            <%= f.phone_field :phone,  class:"form-control", type: "tel"%>
+        </div>
+        <br />
+        <p class="h5 mb-3 font-weight-normal text-center">Occupancy</p>
+        <div class="field">
+            <%= f.label :occupancy, class:"sr-only"  %>
+            <%= f.number_field :occupancy, class:"form-control", type: "number"%>
+        </div>
+        <br />
 
-    <%= f.label :location %>
-    <%= f.text_field :location%>
+        <div class="actions">
+            <%= f.submit "Submit", class: 'btn btn-lg btn-primary btn-block'%>
+        </div>
 
-    <%= f.label :occupancy %>
-    <%= f.number_field :occupancy%>
+        <br />
 
-    <%= f.label :phone %>
-    <%= f.phone_field :phone%>
+        <% end %>
 
-    <%= f.submit "Submit"%>
-<% end %>
+
+      </div>
+     </div>
+</div>
+

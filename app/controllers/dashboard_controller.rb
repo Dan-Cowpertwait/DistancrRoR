@@ -15,6 +15,7 @@ class DashboardController < ApplicationController
 
         elsif @user.owner
             @owner = @user.owner
+            @places = @owner.places
 
         else
             @individual = @user.individual

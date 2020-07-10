@@ -1,9 +1,24 @@
-<%= form_for @owner do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+<div class="container vertical-center">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Business Account Name</h1>
+        <%= form_for @owner do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        
+        <div class="field">
+            <%= f.label :name, class:"sr-only" %>
+            <%= f.text_field :name, class:"form-control" %>
+        </div>
+        <br />
 
-    <%= f.label :name %>
-    <%= f.text_field :name%>
+        <div class="actions">
+            <%= f.submit "Submit", class: 'btn btn-lg btn-primary btn-block'%>
+        </div>
 
-    <%= f.submit "Submit"%>
-    
-<% end %>
+        <% end %>
+
+
+      </div>
+     </div>
+</div>
+

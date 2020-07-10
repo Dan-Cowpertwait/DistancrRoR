@@ -1,19 +1,4 @@
 <h1> Search results </h1>
 
-<% @places.each do |place| %>
-<h1> <%= place.name %> </h1>
+<%= render partial: "/places/show"%>
 
-<p> <%= place.location %> </p>
-<p> <%= place.phone %> </p>
-<p> <%= place.occupancy %> </p>
-
-<p><%= link_to 'Show', place %></p>
-
-
-<% if current_user.owner %>
-
-<%= link_to place.owner.name, owner_path(place.owner) if place.owner %> (<%= link_to "Edit Place", edit_owner_place_path(place.owner, place) if place.owner %>)
-<%= link_to "Delete", place, method: "delete" %>
-
-<% end %>
-<% end %>

@@ -10,24 +10,53 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+^^ for sign up page
 
-for model:
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
 
-:recoverable,
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>DistancrRoR</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+^^ for Log in page
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-  <%= render 'layouts/devisealerts' %>
-  <%= yield %>
-  </body>
-</html>
+
+
+
+
+
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
+  <div class="field">
+    <%= f.label :email, class:"sr-only"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class:"sr-only" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+
+
+

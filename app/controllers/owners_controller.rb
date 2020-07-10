@@ -12,7 +12,8 @@ class OwnersController < ApplicationController
     def create
       @owner = Owner.create(owner_params)
       @owner.user = current_user
-      redirect_to owner_path(@owner)
+      redirect_to new_owner_place_path(@owner)
+      # redirect_to new_place_path
     end
   
     def show

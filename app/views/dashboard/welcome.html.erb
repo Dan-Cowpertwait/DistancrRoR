@@ -1,8 +1,10 @@
-<h1>Welcome!</h1>
-
-<p>Are you an owner or individual? </p>
-
-
-<%= link_to 'Individual', new_individual_path %>
-
-<%= link_to 'Owner', new_owner_path %>
+<section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">You're one step towards a safer community</h1>
+          <p class="lead text-muted">Just a few more things we need. <br/> Are you a Business or an Individual? (You can add either to your account after completing the Sign Up process)</p>
+          <p>
+            <a><%= link_to 'Individual', new_individual_path, class:"btn btn-primary my-2" %></a>
+            <a><%= link_to 'Business Owner', new_owner_path, class:"btn btn-primary my-2"  %></a>
+          </p>
+        </div>
+</section>

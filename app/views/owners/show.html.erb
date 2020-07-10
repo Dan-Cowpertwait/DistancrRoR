@@ -1,4 +1,6 @@
 <h1> <%= @owner.name %> </h1>
 
 <%= link_to "new place", new_owner_place_path(@owner) %>
+
+<%= render partial: "/places/show"%>
  

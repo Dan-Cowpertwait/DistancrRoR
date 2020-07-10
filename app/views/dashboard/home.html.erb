@@ -11,26 +11,33 @@
 
 <style>
     .my-container {
-        background-color: 1px solid green;
+        background-color: #f2f2f2ff;
     }
     .my-row {
-        border: 3px solid red;
         height: 500px;
     }
     .my-col {
-        border: 3px solid blue;
+    }
+    .my-img {
+        max-width: 100%;
+        height: auto;
     }
     
 </style>
 
-<div class="container">
+<div class="my-container">
     <div class="row justify-content-around align-items-center my-row">
-    <div class="col-md-4 my-col">
-        Row 1 Col 1
+
+        <div class="col-md-4 my-col">
+            <h2>For people who want to be safe</h2>
+        </div>
+
+        <div class="col-md-4 my-col">
+            <img class="my-img" src=<%=asset_path("person.png")%>>
+        </div>
+        
     </div>
-    <div class="col-md-4 my-col">
-        Image
-    </div>
+
 </div>
 
 
