@@ -20,21 +20,22 @@ class PlacesController < ApplicationController
     def create
         place = Place.new(place_params)
         place.save
-        redirect_to places_path(place)
+        redirect_to "/dashboard"
     end
 
 
     def show
         @place = Place.find(params[:id])
         @user = current_user
-        if @user.individual
+        @visits = @place.visits
+        if @user.individual && !@user.owner
             @individual = @user.individual
             @visits = @individual.visits
 
-        elsif @user.owner
+        elsif @user.owner && !@user.individual
             @owner = @user.owner
 
-        else
+        elsif @user.owner && @user.individual
             @individual = @user.individual
             @owner = @user.owner
         end
@@ -70,6 +71,8 @@ class PlacesController < ApplicationController
     end
 
     def search
+        @user = current_user
+        @individual = @user.individual
         @places = Place.where("name Like ?", "%" + params[:q] + "%")
     end
 

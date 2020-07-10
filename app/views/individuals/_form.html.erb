@@ -1,16 +1,49 @@
-<%= form_for @individual do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name%>
+<div class="container vertical-center">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+        <h1 class="a mb-3 font-weight-normal text-center">Personal Information</h1>
+        <%= form_for @individual do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name%>
+        <br />
 
-    <%= f.label :phone %>
-    <%= f.phone_field :phone%>
+        <p class="h5 mb-3 font-weight-normal text-center">First Name</p>
+        <div class="field">
+            <%= f.label :first_name, class:"sr-only" %>
+            <%= f.text_field :first_name, class:"form-control"%>
+        <br />
+        </div>
 
-    <%= f.label :dob %>
-    <%= f.date_field :dob%>
 
-    <%= f.submit "Submit"%>
-<% end %>
+        <p class="h5 mb-3 font-weight-normal text-center">Last Name</p>
+        <div class="field">
+            <%= f.label :last_name, class:"sr-only" %>
+            <%= f.text_field :last_name, class:"form-control"%>
+        <br />
+        </div>
+        <br />
+        <p class="h5 mb-3 font-weight-normal text-center">Phone Number</p>
+        <div class="field">
+            <%= f.label :phone, class:"sr-only"  %>
+            <%= f.phone_field :phone,  class:"form-control", type: "tel"%>
+        </div>
+        <br />
+        <p class="h5 mb-3 font-weight-normal text-center">Date of Birth</p>
+        <div class="field">
+            <%= f.label :dob, class:"sr-only"  %>
+            <%= f.date_field :dob, class:"form-control"%>
+        </div>
+        <br />
+
+        <div class="actions">
+            <%= f.submit "Submit", class: 'btn btn-lg btn-primary btn-block'%>
+        </div>
+
+        <br />
+
+        <% end %>
+
+
+      </div>
+     </div>
+</div>

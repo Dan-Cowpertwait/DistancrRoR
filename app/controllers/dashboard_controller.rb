@@ -10,17 +10,20 @@ class DashboardController < ApplicationController
         if user_signed_in?
         @user = current_user
 
-            if @user.individual
+            if @user.individual && !@user.owner
                 @individual = @user.individual
                 @visits = @individual.visits
+                @places = Place.all
 
-            elsif @user.owner
+            elsif @user.owner && !@user.individual
                 @owner = @user.owner
                 @places = @owner.places
 
-            elsif
+            elsif @user.owner && @user.individual
                 @individual = @user.individual
                 @owner = @user.owner
+                @visits = @individual.visits
+                @places = @owner.places
                 
             end
         else 
