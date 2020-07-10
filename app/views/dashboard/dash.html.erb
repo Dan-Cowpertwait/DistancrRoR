@@ -14,9 +14,13 @@
         </div>
     </div>
 <br/>
-
+<% if @visits.empty?%>
+  <p class="lead">You haven't check in anywhere yet, try searching for a business</p>
+<br/>
+<% else %>
   <p class="lead">Your Past Visits</p>
 <br/>
+<% end %>
   <%= render partial: "/visits/show"%>
 
 

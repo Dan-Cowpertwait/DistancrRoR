@@ -24,7 +24,6 @@ class DashboardController < ApplicationController
                 @owner = @user.owner
                 @visits = @individual.visits
                 @places = @owner.places
-                
             end
         else 
             redirect_to "/welcome"
