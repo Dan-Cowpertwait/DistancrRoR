@@ -18,6 +18,8 @@
     <br>
         <p class="lead">This establishment has a max occupancy of <strong><%= place.occupancy %></strong> people</p>
     <br>
+        <p class="lead">  <strong><%= place.visits.where(created_at: (Time.now - 1.hours)..Time.now).length %></strong> people have checked in, in the past hour</p>
+    <br>
 
     <!-- Visit Option ONLY FOR USER -->
     <% if current_user.individual && !current_user.owner %>
@@ -63,6 +65,8 @@
         <% end %>
 
     <% end %>
+
+
 
     <% if current_user.owner && current_user.individual %>
 

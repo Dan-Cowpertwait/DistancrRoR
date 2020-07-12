@@ -1,5 +1,6 @@
 class OwnersController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
+    validates :name, presence: true
 
     def new
       @owner = Owner.new
@@ -12,8 +13,10 @@ class OwnersController < ApplicationController
     def create
       @owner = Owner.create(owner_params)
       @owner.user = current_user
+      if @owner.valid?
       redirect_to new_owner_place_path(@owner)
-      # redirect_to new_place_path
+      else
+      redirect_to new_owner_path
     end
   
     def show

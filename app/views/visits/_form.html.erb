@@ -1,5 +1,5 @@
 <%= form_for Visit.new do |f| %>
     <%= f.hidden_field :individual_id, value: @individual.id %>
     <%= f.hidden_field :place_id, value: @id %>
-<%= f.submit "Visit" %>
+<%= f.submit "Check In" %>
 <% end %>

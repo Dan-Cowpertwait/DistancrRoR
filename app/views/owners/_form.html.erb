@@ -3,11 +3,16 @@
     <div class="col-md-4 mx-auto">
         <h1 class="h3 mb-3 font-weight-normal text-center">Business Account Name</h1>
         <%= form_for @owner do |f| %>
+        <% if @owner.errors %>
+        <% @owner.errors.full_messages.each  do |message| %>
+            <p class="badge badge-danger" style="background: #BD1E1E;"><%= message %></p>
+        <% end %>
+        <% end %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         
         <div class="field">
             <%= f.label :name, class:"sr-only" %>
-            <%= f.text_field :name, class:"form-control" %>
+            <%= f.text_field :name, class:"form-control", :required => 'required' %>
         </div>
         <br />
 
