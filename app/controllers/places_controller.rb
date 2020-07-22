@@ -1,6 +1,5 @@
 class PlacesController < ApplicationController
     
-
     def index
         @user = current_user
         if params[:owner_id]

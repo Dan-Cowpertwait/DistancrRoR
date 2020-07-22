@@ -10,12 +10,8 @@
   </head>
 
   <body>
-  <% if user_signed_in? %>
-  <%= render 'layouts/navbar' %>
-  <% else %>
-
-  <% end %>
-  <%= render 'layouts/devisealerts' %>
-  <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/devisealerts' %>
+    <%= yield %>
   </body>
 </html>
