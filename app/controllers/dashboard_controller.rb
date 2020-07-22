@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+    # before_action :authenticate_user!
 
     def home
     end
@@ -8,25 +9,22 @@ class DashboardController < ApplicationController
 
     def dash
         if user_signed_in?
-        @user = current_user
-
-            if @user.individual && !@user.owner
+            @user = current_user
+            if user_is_individual?
                 @individual = @user.individual
-                @visits = @individual.visits
                 @places = Place.all
-
-            elsif @user.owner && !@user.individual
+                @visits = @individual.visits
+            elsif user_is_owner?
                 @owner = @user.owner
-                @places = @owner.places
-
-            elsif @user.owner && @user.individual
+                @place = @owner.places
+            elsif user_is_both?
                 @individual = @user.individual
                 @owner = @user.owner
                 @visits = @individual.visits
                 @places = @owner.places
             end
-        else 
-            redirect_to "/welcome"
+        else
+            redirect_to "/"
         end
     end
 

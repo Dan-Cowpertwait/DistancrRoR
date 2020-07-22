@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
         if params[:owner_id] && !Owner.exists?(params[:owner_id])
             redirect_to owners_path, alert: "Owner not found"
         else
-        @place = Place.new(owner_id: params[:owner_id])
+            @place = Place.new(owner_id: params[:owner_id])
         end
     end
 
@@ -28,14 +28,12 @@ class PlacesController < ApplicationController
         @place = Place.find(params[:id])
         @user = current_user
         @visits = @place.visits
-        if @user.individual && !@user.owner
+        if user_is_individual?
             @individual = @user.individual
             @visits = @individual.visits
-
-        elsif @user.owner && !@user.individual
+        elsif user_is_owner?
             @owner = @user.owner
-
-        elsif @user.owner && @user.individual
+        elsif user_is_both?
             @individual = @user.individual
             @owner = @user.owner
         end
@@ -51,7 +49,7 @@ class PlacesController < ApplicationController
                 redirect_to owner_places_path(owner), alert: "Place not found" if @place.nil?
             end
         else
-        @place = Place.find(params[:id])
+            @place = Place.find(params[:id])
         end
     end 
 

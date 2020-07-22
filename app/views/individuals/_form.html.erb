@@ -5,13 +5,13 @@
         <%= form_for @individual do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
 
-        <br />
+<br>
 
         <p class="h5 mb-3 font-weight-normal text-center">First Name</p>
         <div class="field">
             <%= f.label :first_name, class:"sr-only" %>
             <%= f.text_field :first_name, class:"form-control"%>
-        <br />
+<br>
         </div>
 
 
@@ -19,33 +19,33 @@
         <div class="field">
             <%= f.label :last_name, class:"sr-only" %>
             <%= f.text_field :last_name, class:"form-control"%>
-        <br />
+<br>
         </div>
-        <br />
+<br>
         <p class="h5 mb-3 font-weight-normal text-center">Phone Number</p>
         <div class="field">
             <%= f.label :phone, class:"sr-only"  %>
             <%= f.phone_field :phone,  class:"form-control", type: "tel"%>
         </div>
-        <br />
+<br>
         <p class="h5 mb-3 font-weight-normal text-center">Date of Birth</p>
         <div class="field">
             <%= f.label :dob, class:"sr-only"  %>
             <%= f.date_field :dob, class:"form-control"%>
         </div>
 
-        <br />
+<br>
         <p class="h5 mb-3 font-weight-normal text-center">Profile Pic (optional)</p>
         <div class="field">
           <%= f.label :profile_pic, class:"sr-only" %>
-          <%= f.file_field :profile_pic, autofocus: true, autocomplete: "email", class:"form-control" %>
+          <%= f.file_field :profile_pic, autofocus: true, class:"form-control" %>
         </div>
-
+<br>
         <div class="actions">
             <%= f.submit "Submit", class: 'btn btn-lg btn-primary btn-block'%>
         </div>
 
-        <br />
+        
 
         <% end %>
 

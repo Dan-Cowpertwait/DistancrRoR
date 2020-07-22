@@ -1,11 +1,7 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4"><%= @place.name %></h1>
     <br>
-      <% if @place.image.attached?%>
-        <%= image_tag(@place.image, class:"img-fluid rounded-circle") %>
-      <% else%>
-        <img class="my-img" style="width: 250px; height: 250px;" src=<%=asset_path("QuestionMark.png")%>>
-      <% end %>
+      <%= image_tag(@place.image, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
 
       <p class="lead">
       
@@ -23,8 +19,6 @@
 
 <div class="my-container"> <% @visits.each do |visit| %>
 <br>
-<% @individual = visit.individual %> 
-
 <div class="row mb-2 justify-content-center">
   <div class="col-md-6">
     <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -34,10 +28,10 @@
           </h3>
 <br>
           <p class="mb-1 text-muted">
-            <%= visit.created_at %>
+          <%= visit.created_at %>
           </p>
 <br>
-          <% if current_user.owner%>
+          <% if user%>
             <ul class="list-unstyled mt-3 mb-4">
               <li><%= visit.individual.first_name %> <%= visit.individual.last_name %></li>
             </ul>
@@ -47,14 +41,10 @@
             </ul>
           <% end %>
 <br>
+          <%= image_tag(@individual.profile_pic, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
         </div>
-          <% if @individual.profile_pic.attached? %>
-            <%= image_tag(@individual.profile_pic, class:"img-fluid rounded-circle") %>
-          <% else%>
-            <img class="my-img" style="width: 250px; height: 250px;" src=<%=asset_path("QuestionMark.png")%>>
-          <% end %>
-        </div>
-    </div>
+      </div>
+  </div>
 </div>
 
 
