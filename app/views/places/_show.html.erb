@@ -1,4 +1,5 @@
 <% @places.each do |place| %>
+<% @id = place.id %>
 
 <div class="container marketing">
 
@@ -21,46 +22,48 @@
 <br>
 
 <!-- Options for Business Owner --->
-<% if user_owns_business(place) %>
-    
-        </div>
-
-            <div class="col-md-5">
-                <%= link_to place do %>
-                    <%= image_tag(@place.image, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
-                <% end %>
-                
-                <%= link_to (edit_owner_place_path(place.owner, place)) do %>
-                    <img class="my-img" src=<%=asset_path("gear.svg")%>>
-                <% end %>
-
-                <%= link_to place, method: "delete", data: { confirm: 'Are you sure you want to delete this business? This cannot be reversed' } do %>
-                    <img class="my-img" src=<%=asset_path("trash.svg")%>>
-                <% end %>
+    <% if user_is_owner? || user_is_both? && place.owner == current_user.owner %>
+        
             </div>
 
-<!-- Option for Check in --->
-<% elsif user_is_individual? %>
+                <div class="col-md-5">
+                    <%= link_to place do %>
+                        <%= image_tag(place.image, style:"width: 350px; height: 350px;", class:"img-fluid rounded-circle") %>
+                    <% end %>
+                    
+                    <%= link_to (edit_owner_place_path(place.owner, place)) do %>
+                        <img class="my-img" src=<%=asset_path("gear.svg")%>>
+                    <% end %>
 
-    <%= render partial: "/visits/form"%>
+                    <%= link_to place, method: "delete", data: { confirm: 'Are you sure you want to delete this business? This cannot be reversed' } do %>
+                        <img class="my-img" src=<%=asset_path("trash.svg")%>>
+                    <% end %>
+                </div>
 
-        </div>
+    <!-- Option for Check in --->
+    <% elsif user_is_individual? %>
 
-            <div class="col-md-5">
-                <%= image_tag(@place.image, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
+        <%= render partial: "/visits/form"%>
+
             </div>
 
-<!-- No Options --->
-<% else %>
-    <p class="lead">You must register as an individual user to check in!</p>
-        </div>
-            <div class="col-md-5">
-                <%= image_tag(@place.image, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
+                <div class="col-md-5">
+                    <%= image_tag(place.image, style:"width: 350px; height: 350px;", class:"img-fluid rounded-circle") %>
+                </div>
+
+    <!-- No Options --->
+    <% else %>
+        <p class="lead">You must register as an individual user to check in!</p>
             </div>
+                <div class="col-md-5">
+                    <%= image_tag(place.image, style:"width: 350px; height: 350px;", class:"img-fluid rounded-circle") %>
+                </div>
+        </div>
+
+        <hr class="featurette-divider">
+
     </div>
 
-    <hr class="featurette-divider">
-
-</div>
+    <% end %>
 
 <% end %>

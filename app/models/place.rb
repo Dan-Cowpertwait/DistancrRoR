@@ -3,8 +3,10 @@ class Place < ApplicationRecord
 
     belongs_to :owner
 
-    has_many :visits, dependent: => :destroy
+    has_many :visits, dependent: :destroy
     has_many :individuals, through: :visits
+
+    scope :search, -> (query) { where("name Like ?", "%#{query}%") }
 
     has_one_attached :image
 

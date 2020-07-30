@@ -2,7 +2,7 @@ class Individual < ApplicationRecord
     after_commit :add_default_picture, on: [:create, :update]
     belongs_to :user
 
-    has_many :visits, dependent: => :destroy
+    has_many :visits, dependent: :destroy
     has_many :places, through: :visits
 
     has_one_attached :profile_pic

@@ -1,7 +1,7 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4"><%= @place.name %></h1>
     <br>
-      <%= image_tag(@place.image, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
+      <%= image_tag(@place.image, style:"width: 300px; height: 300px;", class:"img-fluid rounded-circle") %>
 
       <p class="lead">
       
@@ -22,27 +22,24 @@
 <div class="row mb-2 justify-content-center">
   <div class="col-md-6">
     <div class="card flex-md-row mb-4 box-shadow h-md-250">
-        <div class="card-body d-flex flex-column align-items-start">
+        <div class="card-body d-block align-items-start">
           <h3 class="mb-0">
              <a class="text-dark"><%= visit.individual.first_name %></a>
           </h3>
 <br>
-          <p class="mb-1 text-muted">
-          <%= visit.created_at %>
-          </p>
+          <p class="mb-1 text-muted">Checked in on: <%= visit.created_at %></p>
 <br>
-          <% if user%>
+          <% if user_is_owner? %>
             <ul class="list-unstyled mt-3 mb-4">
-              <li><%= visit.individual.first_name %> <%= visit.individual.last_name %></li>
+              <li>Full Name : <%= visit.individual.first_name %> <%= visit.individual.last_name %></li>
             </ul>
 
             <ul class="list-unstyled mt-3 mb-4">
-              <li><%= visit.individual.phone %></li>
+              <li>Phone: <%= visit.individual.phone %></li>
             </ul>
           <% end %>
-<br>
-          <%= image_tag(@individual.profile_pic, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
         </div>
+           <%= image_tag(visit.individual.profile_pic, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
       </div>
   </div>
 </div>

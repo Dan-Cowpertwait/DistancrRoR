@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-    # before_action :authenticate_user!
 
     def home
     end
@@ -16,12 +15,14 @@ class DashboardController < ApplicationController
                 @visits = @individual.visits
             elsif user_is_owner?
                 @owner = @user.owner
-                @place = @owner.places
+                @places = @owner.places
             elsif user_is_both?
                 @individual = @user.individual
                 @owner = @user.owner
                 @visits = @individual.visits
                 @places = @owner.places
+            elsif user_is_neither?
+                redirect_to "/welcome"
             end
         else
             redirect_to "/"

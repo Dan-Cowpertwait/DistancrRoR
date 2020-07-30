@@ -1,4 +1,4 @@
-<% if current_user.individual %>
+<% if user_is_individual? %>
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <%= image_tag(@individual.profile_pic, style:"width: 250px; height: 250px;", class:"img-fluid rounded-circle") %>
       <h1 class="display-4">Hey <%=@individual.first_name%>! </h1>
@@ -41,7 +41,7 @@
 <% elsif user_is_both? %>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4"> Hey <%= @individual.first_name %>! Owner of <%=  @owner.name %>  </h1>
+      <h1 class="display-4"> Hey <%= @individual.first_name %>! A.K.A : <%=  @owner.name %>  </h1>
       <p class="lead">Welcome back!</p>
       <div class="container vertical-center">
         <div class="row">
